@@ -18,7 +18,6 @@
         </div>
         <div>
             <el-table :data="totalData.data"
-                      @select="handleSelect"
                       v-loading="tableLoading"
                       element-loading-text="拼命加载中"
                       element-loading-spinner="el-icon-loading">
@@ -34,6 +33,7 @@
                         prop="code"
                         label="代码">
                 </el-table-column>
+
                 <el-table-column label="操作">
                     <template slot-scope="{row}">
                         <el-button type="text" @click="showUpdate(row)">修改</el-button>
@@ -100,6 +100,7 @@
                     name: {required: true, message: '请输入姓名', trigger: 'blur'},
                     code: {required: true, message: '请输入代码', trigger: 'blur'}
                 },
+                type: 'add',
                 tableLoading: true
             };
         },
