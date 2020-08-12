@@ -146,6 +146,7 @@ export default {
          * @returns {*}
          */
         getFormRef(value = 'form') {
+            console.log(this.$refs);
             if (!this.$refs[value]) {
                 console.error(`未设置ref=${value}`);
                 return;
@@ -210,6 +211,7 @@ export default {
         clearForm({dialog, formName}) {
             if (!this[dialog]) return;
             let form = this.getFormRef(formName || this[dialog].formRef || 'addForm');
+            if (!form) return;
             // bind(this) 是为了防止data()用了this报错
             let data = this.$options.data.bind(this);
             // 获取最开始的初始数据
