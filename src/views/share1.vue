@@ -33,6 +33,11 @@
                         prop="code"
                         label="代码">
                 </el-table-column>
+                <el-table-column
+                        prop="code"
+                        label="姓名+代码">
+                    <span slot-scope="{row}" style="color: red;">{{row.name}} + {{row.code}}</span>
+                </el-table-column>
 
                 <el-table-column label="操作">
                     <template slot-scope="{row}">

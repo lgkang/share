@@ -17,6 +17,7 @@
             <el-button type="primary" @click="showAdd()">添加</el-button>
         </div>
         <betterTable :columns="columns" :total-data="totalData" ref="table">
+            <span slot-scope="{row}" style="color: red;" slot="nameCode">{{row.name}} + {{row.code}}</span>
             <template slot-scope="{row}" slot="button">
                 <el-button type="text" @click="write(row)">修改</el-button>
                 <el-button type="text" @click="del(row)">删除</el-button>
@@ -58,6 +59,7 @@
                     {label: 'id', prop: 'id'},
                     {label: '姓名', prop: 'name'},
                     {label: '代码', prop: 'code'},
+                    {label: '姓名+代码', slots: 'nameCode'},
                     {label: '操作', slots: 'button'}
                 ],
                 form: {
